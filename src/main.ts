@@ -7,7 +7,7 @@ async function run(): Promise<void> {
     if (require.main) {
       let rootPath = path.dirname(require.main.filename);
 
-      await exec.exec('julia', ['--color=yes', path.join(rootPath, 'src', 'main.jl')]);
+      await exec.exec('julia', ['--color=yes', path.join(rootPath, '..', 'src', 'main.jl')]);
     }
     else {
       core.setFailed('Require method to load root path did not work.')
