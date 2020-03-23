@@ -978,7 +978,7 @@ function run() {
         try {
             if (require.main) {
                 let rootPath = path.dirname(require.main.filename);
-                yield exec.exec('julia', ['--color=yes', path.join(rootPath, 'src', 'main.jl')]);
+                yield exec.exec('julia', ['--color=yes', path.join(rootPath, '..', 'src', 'main.jl')]);
             }
             else {
                 core.setFailed('Require method to load root path did not work.');
