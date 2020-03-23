@@ -1,10 +1,6 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+name: 'Process Julia coverage files'
+description: 'Convert Julia coverage files into a lcov file'
+author: 'David Anthoff'
 runs:
   using: 'node12'
   main: 'dist/index.js'
