@@ -5,9 +5,9 @@ import * as path from 'path';
 async function run(): Promise<void> {
   try {
     if (require.main) {
-      let rootPath = path.dirname(require.main.filename);
+      let rootPath = path.normalize(path.join(path.dirname(require.main.filename), '..'));
 
-      await exec.exec('julia', ['--color=yes', path.join(rootPath, '..', 'src', 'main.jl')]);
+      await exec.exec('julia', ['--color=yes', path.join(rootPath, 'src', 'main.jl')]);
     }
     else {
       core.setFailed('Require method to load root path did not work.')
