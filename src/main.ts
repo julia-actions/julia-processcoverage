@@ -1,16 +1,17 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import * as exec from '@actions/exec'
+import * as path from 'path';
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`)
+    if (require.main) {
+      let rootPath = path.dirname(require.main.filename);
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+      await exec.exec('julia', ['--color=yes', path.join(rootPath, 'src', 'main.jl')]);
+    }
+    else {
+      core.setFailed('Require method to load root path did not work.')
+    }    
   } catch (error) {
     core.setFailed(error.message)
   }
