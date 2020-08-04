@@ -2,6 +2,10 @@ name: 'Process Julia coverage files'
 description: 'Convert Julia coverage files into a lcov file'
 author: 'David Anthoff'
 
+branding:
+  icon: 'settings'
+  color: 'gray-dark'
+
 runs:
   using: 'composite'
   steps:
