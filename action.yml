@@ -1,6 +1,9 @@
 name: 'Process Julia coverage files'
 description: 'Convert Julia coverage files into a lcov file'
 author: 'David Anthoff'
+
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - run: julia --color=yes ${{ github.action_path }}/main.jl
+      shell: bash
