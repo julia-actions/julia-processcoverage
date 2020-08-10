@@ -9,5 +9,5 @@ branding:
 runs:
   using: 'composite'
   steps:
-    - run: julia --color=yes ${{ github.action_path }}/main.jl
+    - run: julia --color=yes "$GITHUB_ACTION_PATH"/main.jl
       shell: bash
