@@ -6,6 +6,7 @@ Pkg.add(PackageSpec(name="CoverageTools"))
 
 using CoverageTools
 
-pf = process_folder()
+dir = get(ENV, "INPUT_DIRECTORY", "src")
+pf = process_folder(dir)
 
 LCOV.writefile("lcov.info", pf)

@@ -6,8 +6,15 @@ branding:
   icon: 'settings'
   color: 'gray-dark'
 
+inputs:
+  directory:
+    description: 'Directory of the source code'
+    required: false
+    default: 'src'
+
 runs:
   using: 'composite'
   steps:
     - run: julia --color=yes "$GITHUB_ACTION_PATH"/main.jl
       shell: bash
+      env: INPUT_DIRECTORY
