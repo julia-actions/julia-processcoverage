@@ -18,18 +18,19 @@ One can also specify the directory or directories to use via the `directories` i
 ```yaml
 
       - uses: julia-actions/julia-processcoverage@v1
+        with:
+          directories: src,examples
       - uses: codecov/codecov-action@v1
         with:
           file: lcov.info
-          directories: src,examples
 ```
 instructs the action to look for coverage information in both `src` and an `examples` folder. Likewise, use
 ```yaml
-
       - uses: julia-actions/julia-processcoverage@v1
+        with:
+          directories: path/to/subdir/package/src
       - uses: codecov/codecov-action@v1
         with:
           file: lcov.info
-          directories: path/to/subdir/package/src
 ```
 to get coverage information from a package in a subdirectory of the repo.

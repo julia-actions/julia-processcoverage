@@ -12,5 +12,5 @@ for dir in dirs
     isdir(dir) || error("directory \"$dir\" not found!")
 end
 
-pfs = map(process_folder, dirs)
+pfs = mapreduce(process_folder, vcat, dirs)
 LCOV.writefile("lcov.info", pfs)
