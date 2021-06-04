@@ -18,4 +18,4 @@ runs:
     - run: julia --color=yes "$GITHUB_ACTION_PATH"/main.jl
       shell: bash
       env:
-        - INPUT_DIRECTORIES
+        - INPUT_DIRECTORIES: ${{ inputs.directories }}
