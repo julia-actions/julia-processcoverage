@@ -7,8 +7,8 @@ branding:
   color: 'gray-dark'
 
 inputs:
-  directory:
-    description: 'Directory of the source code'
+  directories:
+    description: 'Comma-separated list of directories to look for coverage information (e.g. `src,examples`)'
     required: false
     default: 'src'
 
@@ -17,4 +17,5 @@ runs:
   steps:
     - run: julia --color=yes "$GITHUB_ACTION_PATH"/main.jl
       shell: bash
-      env: INPUT_DIRECTORY
+      env:
+        - INPUT_DIRECTORIES
