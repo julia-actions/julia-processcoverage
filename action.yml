@@ -6,8 +6,16 @@ branding:
   icon: 'settings'
   color: 'gray-dark'
 
+inputs:
+  directories:
+    description: 'Comma-separated list of directories to look for coverage information (e.g. `src,examples`)'
+    required: false
+    default: 'src'
+
 runs:
   using: 'composite'
   steps:
     - run: julia --color=yes "$GITHUB_ACTION_PATH"/main.jl
       shell: bash
+      env:
+        INPUT_DIRECTORIES: ${{ inputs.directories }}

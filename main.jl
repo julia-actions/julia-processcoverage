@@ -6,6 +6,11 @@ Pkg.add(PackageSpec(name="CoverageTools"))
 
 using CoverageTools
 
-pf = process_folder()
+directories = get(ENV, "INPUT_DIRECTORIES", "src")
+dirs = filter!(!isempty, split(directories, ","))
+for dir in dirs
+    isdir(dir) || error("directory \"$dir\" not found!")
+end
 
-LCOV.writefile("lcov.info", pf)
+pfs = mapreduce(process_folder, vcat, dirs)
+LCOV.writefile("lcov.info", pfs)
