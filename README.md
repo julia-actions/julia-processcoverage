@@ -4,7 +4,7 @@
 
 ## Usage
 
-See [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl/blob/master/test/fixtures/AllPlugins/.github/workflows/ci.yml) for a complete example.
+See [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl/blob/master/test/fixtures/AllPlugins/.github/workflows/CI.yml) for a complete example.
 
 ```yaml
 
