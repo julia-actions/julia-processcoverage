@@ -9,9 +9,9 @@ See [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl/blob/master/tes
 ```yaml
 
       - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
-          file: lcov.info
+          files: lcov.info
 ```
 
 One can also specify the directory or directories to use via the `directories` input (which defaults to `src`). E.g.
@@ -20,17 +20,17 @@ One can also specify the directory or directories to use via the `directories` i
       - uses: julia-actions/julia-processcoverage@v1
         with:
           directories: src,examples
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
-          file: lcov.info
+          files: lcov.info
 ```
 instructs the action to look for coverage information in both `src` and an `examples` folder. Likewise, use
 ```yaml
       - uses: julia-actions/julia-processcoverage@v1
         with:
           directories: path/to/subdir/package/src
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
-          file: lcov.info
+          files: lcov.info
 ```
 to get coverage information from a package in a subdirectory of the repo.
