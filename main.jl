@@ -7,7 +7,7 @@ Pkg.add(PackageSpec(name="CoverageTools"))
 using CoverageTools
 
 directories = get(ENV, "INPUT_DIRECTORIES", "src")
-dirs = filter!(!isempty, split(directories, ","))
+dirs = filter!(!isempty, strip.(split(directories, ",")))
 for dir in dirs
     isdir(dir) || error("directory \"$dir\" not found!")
 end
