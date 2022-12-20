@@ -10,7 +10,7 @@ inputs:
   directories:
     description: 'Comma-separated list of directories to look for coverage information (e.g. `src,examples`)'
     required: false
-    default: 'src'
+    default: 'src,ext'
 
 runs:
   using: 'composite'

@@ -14,17 +14,17 @@ See [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl/blob/master/tes
           files: lcov.info
 ```
 
-One can also specify the directory or directories to use via the `directories` input (which defaults to `src`). E.g.
+One can also specify the directory or directories (comma separated) to use via the `directories` input (which defaults to `src,ext`). E.g.
 ```yaml
 
       - uses: julia-actions/julia-processcoverage@v1
         with:
-          directories: src,examples
+          directories: src,ext,examples
       - uses: codecov/codecov-action@v2
         with:
           files: lcov.info
 ```
-instructs the action to look for coverage information in both `src` and an `examples` folder. Likewise, use
+instructs the action to look for coverage information in `src`, `ext`, and an `examples` folder. Likewise, use
 ```yaml
       - uses: julia-actions/julia-processcoverage@v1
         with:
